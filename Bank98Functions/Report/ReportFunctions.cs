@@ -35,6 +35,12 @@ public class ReportFunctions
                                                    TableOperators.Or,
                                                    TableQuery.GenerateFilterCondition("DebtorIBAN", QueryComparisons.Equal, iban));
 
+        //var timeFilter = TableQuery.CombineFilters(TableQuery.GenerateFilterConditionForDate("ExecutionDate", QueryComparisons.GreaterThanOrEqual, timeToFetch),
+        //                                           TableOperators.And,
+        //                                           TableQuery.GenerateFilterConditionForDate("DebtorIBAN", QueryComparisons.LessThanOrEqual, timeToFetch.AddMonths(1)));
+
+        //var finalFilter = TableQuery.CombineFilters(ibanFilter, TableOperators.And, timeFilter);
+
         var query = new TableQuery<TransactionEntity>()
             .Where(ibanFilter);
 
