@@ -59,8 +59,6 @@ public class CustomerFunctions
         [Table("customers", Connection = "AzureWebJobsStorage")] CloudTable cloudTable,
         ILogger log)
     {
-        log.LogInformation("Getting customer");
-
         string id = req.Query["id"];
 
         var operation = TableOperation.Retrieve<CustomerEntity>("CUSTOMER", id);
